@@ -1,16 +1,6 @@
-# DECISIONS (key choices)
+# DECISIONS — index (single source of truth)
 
-- D-001: SURFACE as Markdown registry
-  Status: Frozen
-  Rationale: простота чтения человеком/LLM, диффы понятны, легко линковать Proof.
-  Exit: переход на структурированный формат (YAML/JSON) при наличии автогенерации и мигратора.
+Source of truth: HOLO.md (Decisions section in repo root).
+Rationale: avoid duplication and drift; maintain and freeze decisions only in HOLO.md with exit criteria and Proof links.
+If you need a standalone view, render/export from HOLO.md in CI.
 
-- D-002: Evidence = Tests
-  Status: Frozen
-  Rationale: воспроизводимость и проверка в CI; инварианты остаются текстовым законом.
-  Exit: добавление операционализированных метрик (как тестов) возможно.
-
-- D-003: CI as Gate
-  Status: Frozen
-  Rationale: инструменты должны компилировать бюрократию — проверки автоматические.
-  Exit: смена CI или инструментов возможна при сохранении семантики проверок.
