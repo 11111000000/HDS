@@ -1,0 +1,3 @@
+#+begin_answer
+LLM-протокол: как формулировать запросы (Intent, Pressure, Surface impact, Proof), запрет на широкие патчи, порядок: сначала Surface/Tests, затем код.
+#+end_answer

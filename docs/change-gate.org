@@ -1,0 +1,3 @@
+#+begin_answer
+Change Gate: минимальный протокол «Pressure → Surface Check → Proof → Patch», типы давления (Bug/Feature/Debt/Ops), требования к изменениям [FROZEN].
+#+end_answer

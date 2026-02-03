@@ -1,0 +1,21 @@
+#+begin_task
+Сформировать репозиторий-спецификацию методики HDS, оформленный по HDS (голографично), со всеми артефактами: манифест, поверхность, решения/инварианты, алгебра, спецификация, нарратив, протоколы, шаблоны, инструменты верификации, тесты и примеры.
+#+end_task
+#+begin_context
+Репозиторий сам является демонстрацией методики (рекурсивно): он должен пройти собственные проверки голографичности (Surface↔Tests, манифест, сценарий).
+#+end_context
+#+begin_analysis
+Минимальный пакет: HOLO.md (манифест), SURFACE.md (контракты с пометками Frozen/Fluid), DECISIONS.md, INVARIANTS.md, docs/* (спецификация HDS, алгебра HGA, кодекс HDC, стадии/ворота, протоколы LLM), policies/* (совместимость/версии/безопасность), templates/* (HOLO/SURFACE/PR/Issues), tools/* (holo-verify/surface-lint/scaffold), tests/contract/* (связи Surface↔Proof), tests/scenario/* (вертикальный сценарий), .github/* (PR шаблон, issue templates, CI), examples/* (минимальные проекты backend/cli с голограммами).
+Проверки: наличие ≥1 [FROZEN] SurfaceItem со связанными тестами; ≥1 вертикального сценария; ≥5 инвариантов; прохождение tools/holo-verify.sh в CI.
+#+end_analysis
+#+begin_plan
+1) Инициализировать корневые артефакты HDS (HOLO/SURFACE/DECISIONS/INVARIANTS, README, LICENSE). 2) Добавить спецификации и алгебру в docs/*.org. 3) Определить policies и templates. 4) Реализовать tools/* проверки и scaffold. 5) Добавить тесты contract/scenario. 6) Настроить .github CI. 7) Добавить examples/* для демонстрации.
+#+end_plan
+#+begin_verify
+holo-verify: проверяет — (a) SURFACE содержит хотя бы один [FROZEN] с Proof→tests/contract/*; (b) HOLO.md содержит ≥5 инвариантов; (c) есть tests/scenario/*; (d) соответствие ссылок Proof↔файлы. CI падает при нарушении.
+#+end_verify
+#+begin_commands
+- scaffold: tools/generate-scaffold.sh init
+- verify: tools/holo-verify.sh && tools/surface-lint.sh
+- ci: .github/workflows/ci.yml запускает verify
+#+end_commands

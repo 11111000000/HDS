@@ -1,0 +1,1 @@
+HDS Algebra reference placeholder — см. docs/hga-algebra.org для текущей версии алгебры и аксиом.
