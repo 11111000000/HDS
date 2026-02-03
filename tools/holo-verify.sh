@@ -46,4 +46,22 @@ shopt -s nullglob
 scenarios=( "$root"/tests/scenario/* )
 [[ ${#scenarios[@]} -ge 1 ]] || fail "No scenario tests found"
 
+# 4) DECISIONS Frozen must have Exit criteria
+dec="$root/DECISIONS.md"
+if [[ -f "$dec" ]]; then
+  froz="$(grep -n 'Status:[[:space:]]*Frozen' "$dec" || true)"
+  if [[ -n "$froz" ]]; then
+    miss_exit=0
+    while IFS= read -r l; do
+      ln="${l%%:*}"
+      blk="$(tail -n +$((ln)) "$dec" | head -n 8)"
+      if ! grep -q -E '^ *Exit:' <<<"$blk"; then
+        echo "DECISIONS: Frozen without Exit near line $ln" >&2
+        miss_exit=$((miss_exit+1))
+      fi
+    done <<< "$froz"
+    [[ "$miss_exit" -eq 0 ]] || fail "DECISIONS: $miss_exit Frozen decision(s) missing Exit"
+  fi
+fi
+
 echo "HDS VERIFY: OK"

@@ -15,3 +15,4 @@ jobs:
           chmod +x tools/*.sh || true
           ./tools/holo-verify.sh
           ./tools/surface-lint.sh
+          ./tools/docs-link-check.sh
