@@ -1,1 +1,36 @@
-...*
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editors/IDEs
+.idea/
+.vscode/
+
+# Python
+venv/
+.pyenv/
+__pycache__/
+.pytest_cache/
+*.pyc
+
+# Node/JS
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Builds/Artifacts
+dist/
+build/
+coverage/
+tmp/
+.tmp/
+logs/
+*.log
+
+# Env
+.env
+.env.*
+
+# Generated docs (exported artifacts)
+docs/algebra/

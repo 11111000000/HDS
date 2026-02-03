@@ -1,34 +1,12 @@
 # SURFACE — Contract Surface for HDS repository
 
-## Specifications (Docs)
-- [FROZEN] HDS Spec v1 (docs/hds-spec.org)
-  Proof: tests/contract/test_surface_links.spec
+## Tooling (CLI promises)
 
-- [FROZEN] HGA Algebra v1 (docs/hga-algebra.org)
-  Proof: tests/contract/test_surface_links.spec
-
-- [FROZEN] HDC Codex v0.x (docs/hdc-codex.org)
-  Proof: tests/contract/test_surface_links.spec
-
-- [FLUID] HDS Compact Spec v1 (docs/hdf-compact-spec.md)
-  Proof: tests/contract/test_surface_links.spec
-
-- [FLUID] HDS Essentials article (docs/hds-essentials.org)
-  Proof: tests/contract/test_surface_links.spec
-
-## Tooling
 - [FROZEN] holo-verify CLI (tools/holo-verify.sh)
-  Proof: tests/contract/test_surface_links.spec
+  Proof: tests/contract/test_holo_verify_cli.spec
 
-- [FLUID] surface-lint helper (tools/surface-lint.sh)
-  Proof: tests/contract/test_surface_links.spec
+- [FLUID] surface-lint CLI (tools/surface-lint.sh)
+  Proof: tests/contract/test_surface_lint_cli.spec
 
-- [FLUID] docs-link-check (tools/docs-link-check.sh)
-  Proof: tests/contract/test_surface_links.spec
-
-## Process Templates
-- [FROZEN] PR Template (/.github/pull_request_template.md)
-  Proof: tests/contract/test_surface_links.spec
-
-- [FLUID] Issue Templates (.github/ISSUE_TEMPLATE)
-  Proof: tests/contract/test_surface_links.spec
+- [FLUID] docs-link-check CLI (tools/docs-link-check.sh)
+  Proof: tests/contract/test_docs_link_check_cli.spec
