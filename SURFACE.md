@@ -13,11 +13,17 @@
 - [FLUID] HDS Compact Spec v1 (docs/hdf-compact-spec.md)
   Proof: tests/contract/test_surface_links.spec
 
+- [FLUID] HDS Essentials article (docs/hds-essentials.org)
+  Proof: tests/contract/test_surface_links.spec
+
 ## Tooling
 - [FROZEN] holo-verify CLI (tools/holo-verify.sh)
   Proof: tests/contract/test_surface_links.spec
 
 - [FLUID] surface-lint helper (tools/surface-lint.sh)
+  Proof: tests/contract/test_surface_links.spec
+
+- [FLUID] docs-link-check (tools/docs-link-check.sh)
   Proof: tests/contract/test_surface_links.spec
 
 ## Process Templates

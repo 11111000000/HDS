@@ -1,1 +1,4 @@
 HDS — Holographic Development Specification (recursive). Этот репозиторий описывает методику HDS и сам оформлен по HDS: в корне есть HOLO.md (манифест), SURFACE.md (контракты), DECISIONS.md, INVARIANTS.md; есть формальная алгебра (docs/hga-algebra.org), спецификация (docs/hds-spec.org), нарратив (docs/narrative-philosophy.org), тесты (tests/*) и инструменты проверки (tools/*). Цель: дать ясный, небюрократический способ удерживать форму смысла проекта, обеспечивая скорость изменений без разрушения идентичности. Для быстрого старта прочтите компактную спецификацию: docs/hdf-compact-spec.md. Начните с HOLO.md и SURFACE.md. Для практики: откройте docs/hds-spec.org и запустите tools/holo-verify.sh.
+
+Быстрый маршрут: docs/quickstart-5min.md
+Суть подхода (Essentials): docs/hds-essentials.org
