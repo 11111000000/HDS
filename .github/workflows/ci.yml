@@ -13,6 +13,8 @@ jobs:
       - name: Verify HDS holography
         run: |
           chmod +x tools/*.sh || true
+          ./tools/algebra-sync.sh || true
+          ./tools/spec-version-check.sh || true
           ./tools/holo-verify.sh
           ./tools/surface-lint.sh
           ./tools/docs-link-check.sh

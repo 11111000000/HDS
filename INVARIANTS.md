@@ -1,3 +1,5 @@
+Source of truth: HOLO.md (see repo root)
+
 # INVARIANTS (Constitution)
 
 1) Каждый [FROZEN] SurfaceItem имеет явную ссылку Proof на существующие контрактные тесты.

@@ -7,7 +7,7 @@ surface="$root/SURFACE.md"
 # Lint ensures each [FROZEN]/[FLUID] line has a name and optional path in parentheses
 bad=0
 while IFS= read -r line; do
-  if [[ "$line" =~ ^-[[:space:]]+\[(FROZEN|FLUID)\][[:space:]]+[^[:space:]]+([[:space:]]*\(.+\))?[[:space:]]*$ ]]; then
+  if [[ "$line" =~ ^-[[:space:]]+\[(FROZEN|FLUID)\][[:space:]]+[^()]+(\([^)]*\))?[[:space:]]*$ ]]; then
     :
   else
     echo "SURFACE LINT: suspicious line: $line" >&2

@@ -32,3 +32,4 @@ tests/scenario/test_vertical_minimum.spec — проверяет: (a) налич
 
 Operational notes:
 Совместимость методики: minor версии — добавления без ломки законов; major — возможны изменения аксиом с миграцией артефактов (docs/templates/tools).
+Note: Canon here = canon of methodology (process/tools/contracts), proven by tests and tools within this repository.
