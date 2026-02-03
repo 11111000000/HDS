@@ -1,1 +1,42 @@
-HDS Algebra reference placeholder — см. docs/hga-algebra.org для текущей версии алгебры и аксиом.
+#+begin_answer
+HGA — Holographic Development Algebra (v1.2, компактно)
+
+Цель: задать минимальную формальную модель, которая “компилируется” в практику HDS без бюрократии.
+
+1) Типы (сущности)
+- Stability = Frozen | Fluid
+- SurfaceItem = { name: Text, stability: Stability, spec: Text, proof: Text? }
+- Surface = List(SurfaceItem)
+- Decision = { topic: Text, choice: Text, status: Draft|Frozen, exit: Text?, proof: Text? }
+- Invariant = { name: Text, statement: Text, scope: Text, severity: must|should }
+- Test = { name: Text, kind: Golden|Scenario|Property|Lint, path: Text }
+- Pressure = Bug | Feature | Debt | Ops
+- Change = { intent: Text, pressure: Pressure, surfaceImpact: List(Text), tests: List(Text) }
+- State = { surface: Surface, decisions: List(Decision), invariants: List(Invariant), tests: List(Test) }
+
+2) Операции (частичные функции)
+- ProposeSurface: State × SurfaceItem -> State
+- FreezeSurface: State × name -> State        // допускается только при наличии proof
+- ProposeDecision: State × Decision -> State
+- FreezeDecision: State × topic -> State       // допускается, если есть exit и proof
+- AddInvariant: State × Invariant -> State
+- AddTest: State × Test -> State
+- ValidateChange: State × Change -> Bool       // проверяет Axioms A1–A4
+- ApplyChange: State × Change -> State         // только если ValidateChange = true
+
+3) Предикаты
+- TouchesFrozen(change, state): Bool
+- HasProof(surfaceItem|decision, state): Bool
+- IsHolographic(state): Bool =
+  exists HOLO.md ∧ exists SURFACE.md ∧
+  (∃ [FROZEN] with Proof) ∧ (∃ vertical Scenario test)
+
+4) Аксиомы (инварианты алгебры)
+- AX1 SingleIntent: Change.intent — одна доминирующая цель.
+- AX2 SurfaceFirst: если меняется внешний смысл — сначала Surface, затем код.
+- AX3 FrozenNeedsProof: FreezeSurface/FreezeDecision разрешены только при наличии соответствующих тестов (Proof).
+- AX4 PressureForFrozen: TouchesFrozen ⇒ Change.pressure ∈ {Bug,Feature,Debt,Ops} и Change.tests ≠ ∅.
+
+5) Семантика
+- ApplyChange модифицирует State (Surface/Decisions/Tests/Artifacts), не нарушая аксиом. Любое нарушение — отклонение на уровне CI/verify.
+#+end_answer

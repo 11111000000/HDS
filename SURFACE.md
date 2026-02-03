@@ -10,6 +10,9 @@
 - [FROZEN] HDC Codex v0.x (docs/hdc-codex.org)
   Proof: tests/contract/test_surface_links.spec
 
+- [FLUID] HDS Compact Spec v1 (docs/hdf-compact-spec.md)
+  Proof: tests/contract/test_surface_links.spec
+
 ## Tooling
 - [FROZEN] holo-verify CLI (tools/holo-verify.sh)
   Proof: tests/contract/test_surface_links.spec
