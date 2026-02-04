@@ -36,4 +36,3 @@ logs/
 .env.*
 
 # Generated docs (exported artifacts)
-docs/algebra/

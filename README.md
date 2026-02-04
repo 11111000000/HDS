@@ -19,6 +19,7 @@ HDS — Holographic Development Specification (recursive)
 - Компактная выжимка: docs/hdf-compact-spec.md
 - Суть подхода (Essentials): docs/hds-essentials.org
 - Алгебра (HGA): docs/hga-algebra.org и экспорт docs/algebra/HDS-algebra.txt
+- Политика Proof: docs/proof-policy.md
 - Стадии и ворота: docs/stages-and-gates.org
 - Протокол изменений и LLM: docs/change-gate.org, docs/llm-protocol.org
 - Паттерны/антипаттерны: docs/patterns-anti-patterns.org
@@ -36,6 +37,7 @@ HDS — Holographic Development Specification (recursive)
 Инструменты и CI
 - Проверки: tools/holo-verify.sh, tools/surface-lint.sh, tools/docs-link-check.sh
 - CI: .github/workflows/ci.yml — запускает все проверки и падает при нарушениях.
+- Конфигурация: порог reuse Proof настраивается через env HDS_PROOF_REUSE_MAX (см. policies/compatibility.md).
 
 Примеры
 - Минимальный CLI: examples/cli (SURFACE + контрактный и сценарный тесты)

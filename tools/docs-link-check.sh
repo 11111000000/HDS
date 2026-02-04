@@ -6,8 +6,9 @@ root="$(cd "$(dirname "$0")/.." && pwd)"
 # Collect Markdown-style links: [text](path)
 md_links=$(grep -Rho '\[[^]]*\]\(([^)#]+)\)' "$root/docs" 2>/dev/null | sed -E 's/.*\]\(([^)#]+)\).*/\1/')
 
-# Collect Org-style links: [[path]]
-org_links=$(grep -Rho '\[\[([^]]+)\]\]' "$root/docs" 2>/dev/null | sed -E 's/^\[\[(.*)\]\]$/\1/')
+# Collect Org-style links: [[path]] and [[path][label]] (extract the left part)
+org_links=$(grep -RhoE '\[\[[^]]+\](\[[^]]*\])?\]' "$root/docs" 2>/dev/null \
+  | sed -E -e 's/^\[\[//' -e 's/\]\[.*\]\]$//' -e 's/\]\]$//')
 
 missing=0
 

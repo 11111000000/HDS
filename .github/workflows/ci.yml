@@ -16,3 +16,5 @@ jobs:
           bash tools/surface-lint.sh
           bash tools/docs-link-check.sh
           bash tools/spec-version-check.sh
+          bash tools/algebra-sync.sh
+          git diff --quiet -- docs/algebra/HDS-algebra.txt || { echo "Algebra export drift: run tools/algebra-sync.sh and commit" >&2; exit 1; }

@@ -8,7 +8,15 @@ fail() { echo "HDS VERIFY: $*" >&2; exit 1; }
 # 1) HOLO invariants count >=5
 holo="$root/HOLO.md"
 [[ -f "$holo" ]] || fail "HOLO.md missing"
-inv_count="$(grep -E '^[0-9]+\)' "$holo" | wc -l | tr -d ' ')"
+inv_count="$(
+  awk '
+    BEGIN{f=0;c=0}
+    /^Invariants/{f=1; next}
+    /^Decisions/{f=0}
+    f && /^[[:space:]]*[0-9]+\)/{c++}
+    END{print c}
+  ' "$holo" | tr -d " "
+)"
 if [[ "${inv_count:-0}" -lt 5 ]]; then
   fail "HOLO.md invariants < 5 (got ${inv_count:-0})"
 fi
@@ -43,8 +51,8 @@ done <<< "$frozen_lines"
 
 [[ "$missing" -eq 0 ]] || fail "Missing Proof artifacts: $missing"
 
-# Enforce: do not let one Proof be shared by too many [FROZEN] (threshold = 2)
-threshold=2
+# Enforce: do not let one Proof be shared by too many [FROZEN] (threshold = ${HDS_PROOF_REUSE_MAX:-2})
+threshold="${HDS_PROOF_REUSE_MAX:-2}"
 for p in "${!proof_counts[@]}"; do
   c="${proof_counts[$p]}"
   if [[ "$c" -gt "$threshold" ]]; then
@@ -62,22 +70,19 @@ for sc in "${scenarios[@]}"; do
 done
 [[ "$nonempty" -ge 1 ]] || fail "All scenario tests are empty; add content"
 
-# 4) DECISIONS Frozen must have Exit criteria
-dec="$root/DECISIONS.md"
-if [[ -f "$dec" ]]; then
-  froz="$(grep -n 'Status:[[:space:]]*Frozen' "$dec" || true)"
-  if [[ -n "$froz" ]]; then
-    miss_exit=0
-    while IFS= read -r l; do
-      ln="${l%%:*}"
-      blk="$(tail -n +$((ln)) "$dec" | head -n 8)"
-      if ! grep -q -E '^ *Exit:' <<<"$blk"; then
-        echo "DECISIONS: Frozen without Exit near line $ln" >&2
-        miss_exit=$((miss_exit+1))
-      fi
-    done <<< "$froz"
-    [[ "$miss_exit" -eq 0 ]] || fail "DECISIONS: $miss_exit Frozen decision(s) missing Exit"
-  fi
+# 4) HOLO Decisions (SSoT): Frozen must have Exit criteria
+froz="$(grep -n 'Status:[[:space:]]*Frozen' "$holo" || true)"
+if [[ -n "$froz" ]]; then
+  miss_exit=0
+  while IFS= read -r l; do
+    ln="${l%%:*}"
+    blk="$(tail -n +$((ln)) "$holo" | head -n 10)"
+    if ! grep -q -E '^ *Exit:' <<<"$blk"; then
+      echo "HOLO Decisions: Frozen without Exit near line $ln" >&2
+      miss_exit=$((miss_exit+1))
+    fi
+  done <<< "$froz"
+  [[ "$miss_exit" -eq 0 ]] || fail "HOLO Decisions: $miss_exit Frozen decision(s) missing Exit"
 fi
 
 echo "HDS VERIFY: OK"
