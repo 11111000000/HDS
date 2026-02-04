@@ -31,4 +31,4 @@ Intent — одна фраза; Pressure — Bug/Feature/Debt/Ops; Surface impac
 LLM действует в рамках голограммы: читает HOLO.md и SURFACE.md, меняет сначала Surface (если смысл меняется), затем добавляет/правит тесты, затем код. Запрещено менять Frozen без Pressure и Proof. Рекомендуемый порядок запроса: Intent → Pressure → Surface impact → Proof.
 
 Критерий голографичности (Holo)
-Состояние репозитория считается голографичным, если: HOLO.md существует и содержит ≥5 инвариантов; SURFACE.md существует и имеет ≥1 [FROZEN] с валидным Proof; есть ≥1 вертикальный сценарий (tests/scenario/*); инструменты проверки проходят (tools/holo-verify.sh). См. docs/hds-spec.org и docs/hdf-compact-spec.md для подробностей; начните с docs/quickstart-5min.md.
+Состояние репозитория считается голографичным, если: HOLO.md существует и содержит ≥5 инвариантов; SURFACE.md существует и имеет ≥1 [FROZEN] с валидным Proof; есть ≥1 вертикальный сценарий (tests/scenario/*); инструменты проверки проходят (tools/holo-verify.sh). См. docs/hds-spec.md и docs/hdf-compact-spec.md для подробностей; начните с docs/quickstart-5min.md.

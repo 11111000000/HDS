@@ -6,17 +6,29 @@ surface="$root/SURFACE.md"
 
 # Lint ensures each [FROZEN]/[FLUID] line has a name and optional path in parentheses
 bad=0
+dups=0
+declare -A names=()
 while IFS= read -r line; do
   if [[ "$line" =~ ^-[[:space:]]+\[(FROZEN|FLUID)\][[:space:]]+[^()]+(\([^)]*\))?[[:space:]]*$ ]]; then
-    :
+    # Extract normalized item name (strip status prefix and optional (path))
+    name="$(sed -E 's/^-\s*\[(FROZEN|FLUID)\]\s*//; s/\s*\([^)]*\)\s*$//' <<<"$line" | sed -E 's/[[:space:]]+$//')"
+    if [[ -n "$name" ]]; then
+      if [[ -n "${names[$name]:-}" ]]; then
+        echo "SURFACE LINT: duplicate item name: $name" >&2
+        dups=$((dups+1))
+      else
+        names[$name]=1
+      fi
+    fi
   else
     echo "SURFACE LINT: suspicious line: $line" >&2
     bad=$((bad+1))
   fi
 done < <(grep -E '^\-\s*\[(FROZEN|FLUID)\]' "$surface" || true)
 
-if [[ "$bad" -gt 0 ]]; then
-  echo "SURFACE LINT: $bad issues" >&2
+issues=$((bad+dups))
+if [[ "$issues" -gt 0 ]]; then
+  echo "SURFACE LINT: $issues issue(s) (${bad} format, ${dups} duplicate name[s])" >&2
   exit 1
 fi
 

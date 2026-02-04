@@ -37,5 +37,5 @@ Guardrails для модели
 Ссылки
 - SURFACE.md
 - HOLO.md
-- Нормативная спецификация: [[hds-spec.org]]
+- Нормативная спецификация: [[hds-spec.md]]
 - Быстрый маршрут: [[quickstart-5min.md]]

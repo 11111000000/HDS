@@ -29,7 +29,7 @@
 - Если трогаете [FROZEN], добавьте Migration/Compatibility note.
 
 Полезные ссылки
-- Нормативная спецификация: docs/hds-spec.org
+- Нормативная спецификация: docs/hds-spec.md
 - Компактная выжимка: docs/hdf-compact-spec.md
 - Манифест и поверхность: HOLO.md, SURFACE.md
 - Инструменты: tools/holo-verify.sh

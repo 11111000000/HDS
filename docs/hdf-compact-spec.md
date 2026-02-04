@@ -1,5 +1,5 @@
 # HDS v1.0 — Compact Holographic Specification (Holographic Development, concise)
-Canonical normative specification: docs/hds-spec.org
+Canonical normative specification: docs/hds-spec.md
 
 Purpose
 HDS ensures that at any moment a project has a minimal “slice of the whole” (a hologram) and that changes are driven by facts, keeping public meaning stable without bureaucratic overhead.

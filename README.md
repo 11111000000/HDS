@@ -15,7 +15,7 @@ HDS — Holographic Development Specification (recursive)
 - tests/scenario/* — один вертикальный сценарий (e2e или на моках).
 
 Спецификации и документы
-- Норматив: docs/hds-spec.org
+- Норматив: docs/hds-spec.md
 - Компактная выжимка: docs/hdf-compact-spec.md
 - Суть подхода (Essentials): docs/hds-essentials.org
 - Алгебра (HGA): docs/hga-algebra.org и экспорт docs/algebra/HDS-algebra.txt
