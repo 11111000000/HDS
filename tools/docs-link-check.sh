@@ -3,12 +3,17 @@ set -euo pipefail
 
 root="$(cd "$(dirname "$0")/.." && pwd)"
 
-# Collect Markdown-style links: [text](path)
-md_links=$(grep -Rho '\[[^]]*\]\(([^)#]+)\)' "$root/docs" 2>/dev/null | sed -E 's/.*\]\(([^)#]+)\).*/\1/')
+# Collect Markdown-style links: [text](path) from docs/ and selected root files
+md_links_docs=$(grep -Rho '\[[^]]*\]\(([^)#]+)\)' "$root/docs" 2>/dev/null | sed -E 's/.*\]\(([^)#]+)\).*/\1/')
+md_links_root=$(grep -Rho '\[[^]]*\]\(([^)#]+)\)' "$root/README.md" "$root/HOLO.md" "$root/SURFACE.md" "$root/CONTRIBUTING.md" 2>/dev/null | sed -E 's/.*\]\(([^)#]+)\).*/\1/' || true)
+md_links="$(printf "%s\n%s\n" "${md_links_docs:-}" "${md_links_root:-}")"
 
 # Collect Org-style links: [[path]] and [[path][label]] (extract the left part)
-org_links=$(grep -RhoE '\[\[[^]]+\](\[[^]]*\])?\]' "$root/docs" 2>/dev/null \
+org_links_docs=$(grep -RhoE '\[\[[^]]+\](\[[^]]*\])?\]' "$root/docs" 2>/dev/null \
   | sed -E -e 's/^\[\[//' -e 's/\]\[.*\]\]$//' -e 's/\]\]$//')
+org_links_root=$(grep -RhoE '\[\[[^]]+\](\[[^]]*\])?\]' "$root/README.md" "$root/HOLO.md" "$root/SURFACE.md" "$root/CONTRIBUTING.md" 2>/dev/null \
+  | sed -E -e 's/^\[\[//' -e 's/\]\[.*\]\]$//' -e 's/\]\]$//')
+org_links="$(printf "%s\n%s\n" "${org_links_docs:-}" "${org_links_root:-}")"
 
 missing=0
 

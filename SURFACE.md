@@ -10,3 +10,6 @@
 
 - [FLUID] docs-link-check CLI (tools/docs-link-check.sh)
   Proof: tests/contract/test_docs_link_check_cli.spec
+
+- [FLUID] hds wrapper CLI (tools/hds.sh)
+  Proof: tests/contract/test_hds_wrapper_cli.spec
