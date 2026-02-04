@@ -17,25 +17,27 @@ HDS — Holographic Development Specification (recursive)
 Спецификации и документы
 - Норматив: docs/hds-spec.md
 - Компактная выжимка: docs/hdf-compact-spec.md
-- Суть подхода (Essentials): docs/hds-essentials.org
-- Алгебра (HGA): docs/hga-algebra.org и экспорт docs/algebra/HDS-algebra.txt
+- Суть подхода (Essentials): docs/hds-essentials.md
+- Алгебра (HGA): docs/hga-algebra.md и экспорт docs/algebra/HDS-algebra.txt
 - Политика Proof: docs/proof-policy.md
-- Стадии и ворота: docs/stages-and-gates.org
-- Протокол изменений и LLM: docs/change-gate.org, docs/llm-protocol.org
-- Паттерны/антипаттерны: docs/patterns-anti-patterns.org
-- Глоссарий/FAQ: docs/glossary.org, docs/faq.org
-- Нарратив/философия: docs/overview.org, docs/narrative-philosophy.org
-- Дорожная карта: docs/roadmap.org
+- Стадии и ворота: docs/stages-and-gates.md
+- Протокол изменений и LLM: docs/change-gate.md, docs/llm-protocol.md
+- Паттерны/антипаттерны: docs/patterns-anti-patterns.md
+- Глоссарий/FAQ: docs/glossary.md, docs/faq.md
+- Нарратив/философия: docs/overview.md, docs/narrative-philosophy.md
+- Дорожная карта: docs/roadmap.md
 
 Быстрый старт (5 шагов)
 1) Обнови HOLO.md: Stage, Purpose, 5–15 инвариантов, ключевые решения (с Exit). 
 2) Опиши SURFACE.md: элементы контракта с [FROZEN]/[FLUID] и Proof-ссылками. 
 3) Добавь доказательства: контрактные тесты для Frozen и один вертикальный сценарий. 
-4) Запусти проверки: ./tools/holo-verify.sh && ./tools/surface-lint.sh && ./tools/docs-link-check.sh 
+4) Запусти проверки: ./tools/hds.sh all 
+   (или по отдельности: ./tools/holo-verify.sh && ./tools/surface-lint.sh && ./tools/docs-link-check.sh)
 5) Делай PR по 4 строкам: Intent, Pressure (Bug/Feature/Debt/Ops), Surface impact, Proof.
 
 Инструменты и CI
 - Проверки: tools/holo-verify.sh, tools/surface-lint.sh, tools/docs-link-check.sh
+- Wrapper: tools/hds.sh — единая точка входа (verify/lint/links/spec/all)
 - CI: .github/workflows/ci.yml — запускает все проверки и падает при нарушениях.
 - Конфигурация: порог reuse Proof настраивается через env HDS_PROOF_REUSE_MAX (см. policies/compatibility.md).
 
@@ -53,9 +55,9 @@ Proof: какие тесты докажут
 
 С чего начать читать
 - 5 минут: docs/quickstart-5min.md
-- Суть и мотивация: docs/hds-essentials.org
-- Полная спецификация: docs/hds-spec.org
-- Алгебра: docs/hga-algebra.org
+- Суть и мотивация: docs/hds-essentials.md
+- Полная спецификация: docs/hds-spec.md
+- Алгебра: docs/hga-algebra.md
 
 Лицензия и вклад
 - Лицензия: LICENSE (MIT)

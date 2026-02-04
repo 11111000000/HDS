@@ -22,4 +22,4 @@ HOLO и SURFACE — письма себе в будущее и коллегам 
 
 Ссылки
 - Норматив: [[hds-spec.md]]
-- Суть и короткий маршрут: [[hds-essentials.org]] и [[quickstart-5min.md]]
+- Суть и короткий маршрут: [[hds-essentials.md]] и [[quickstart-5min.md]]

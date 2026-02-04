@@ -24,6 +24,6 @@ Context → Skeleton → Reality Check → Canon → Core → Integrate → Ops.
 Ссылки
 - Нормативная спецификация: [[hds-spec.md]]
 - Компактная выжимка: [[hdf-compact-spec.md]]
-- Алгебра (формальная модель): [[hga-algebra.org]]
-- Суть подхода (Essentials): [[hds-essentials.org]]
+- Алгебра (формальная модель): [[hga-algebra.md]]
+- Суть подхода (Essentials): [[hds-essentials.md]]
 - Быстрый маршрут: [[quickstart-5min.md]]

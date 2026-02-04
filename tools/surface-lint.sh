@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# Ensure we run under bash even if invoked via sh (e.g., org-babel)
+if [ -z "${BASH_VERSION:-}" ]; then exec bash "$0" "$@"; fi
 set -euo pipefail
 root="$(cd "$(dirname "$0")/.." && pwd)"
 surface="$root/SURFACE.md"
@@ -7,9 +9,10 @@ surface="$root/SURFACE.md"
 # Lint ensures each [FROZEN]/[FLUID] line has a name and optional path in parentheses
 bad=0
 dups=0
+re='^-[[:space:]]+\[(FROZEN|FLUID)\][[:space:]]+[^()]+(\([^)]*\))?[[:space:]]*$'
 declare -A names=()
 while IFS= read -r line; do
-  if [[ "$line" =~ ^-[[:space:]]+\[(FROZEN|FLUID)\][[:space:]]+[^()]+(\([^)]*\))?[[:space:]]*$ ]]; then
+  if grep -Eq '^-[[:space:]]+\[(FROZEN|FLUID)\][[:space:]]+[^()]+(\([^)]*\))?[[:space:]]*$' <<<"$line"; then
     # Extract normalized item name (strip status prefix and optional (path))
     name="$(sed -E 's/^-\s*\[(FROZEN|FLUID)\]\s*//; s/\s*\([^)]*\)\s*$//' <<<"$line" | sed -E 's/[[:space:]]+$//')"
     if [[ -n "$name" ]]; then
