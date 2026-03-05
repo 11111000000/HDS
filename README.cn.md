@@ -46,18 +46,18 @@
 
 ## 使用 HDS LLM 种子
 
-- 位置：
+### 位置：
   - RU: docs/hds-llm-seed-ru.md
   - EN: docs/hds-llm-seed-en.md
   - 详细指南：docs/llm-seed-guide.md
 
-- 用法（简要）：
+### 用法（简要）：
   1) 将种子文件（RU/EN）完整放入 LLM 上下文。
   2) 提供领域输入（需求/规格/用户路径）。
   3) 期望模型输出 5 个部分：Questions → Plan（含 Change Gate）→ Answer（补丁/物化）→ Verify（报告）→ Commands（本地命令）。
   4) 始终遵循：Surface → Tests（Proof）→ Code → Verify → 更新 HOLO/Decisions。
 
-- 输出结构（与格式无关；默认 Markdown）：
+### 输出结构（与格式无关；默认 Markdown）：
   - 五个部分：Questions、Plan、Answer、Verify、Commands。
   - 每个 Plan 必含 Change Gate（Intent/Pressure/Surface impact/Proof）。若触及 [FROZEN]，需追加 Migration Block（Impact/Strategy/Window-Version/Data/Backfill/Rollback/Tests Keep&Add）。
 

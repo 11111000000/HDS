@@ -46,18 +46,18 @@ If you touch [FROZEN], add a Migration/Compatibility note (Old→New, strategy, 
 
 ## Using the HDS LLM Seed
 
-- Where:
+### Where:
   - RU: docs/hds-llm-seed-ru.md
   - EN: docs/hds-llm-seed-en.md
   - Full guide: docs/llm-seed-guide.md
 
-- How to run (short):
+### How to run (short):
   1) Put the Seed file (RU/EN) in the LLM context.
   2) Provide domain input (spec/user path).
   3) Expect five sections: Questions → Plan (with Change Gate) → Answer (patch/materialization) → Verify (report) → Commands (to run checks).
   4) Always follow: Surface → Tests (Proof) → Code → Verify → Update HOLO/Decisions.
 
-- Output structure (format-agnostic; Markdown by default):
+### Output structure:
   - Five sections: Questions, Plan, Answer, Verify, Commands.
   - Every Plan contains the Change Gate (Intent/Pressure/Surface impact/Proof). If it touches [FROZEN], add a Migration Block (Impact/Strategy/Window-Version/Data/Backfill/Rollback/Tests Keep&Add).
 

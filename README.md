@@ -46,34 +46,33 @@
 
 ## Использование HDS LLM Seed
 
-- Где лежит:
+### Где лежит:
 - RU: docs/hds-llm-seed-ru.md
 - EN: docs/hds-llm-seed-en.md
 - Подробное руководство: docs/llm-seed-guide.md
 
-- Как запускать (коротко):
+### Как запускать (коротко):
 1) Добавь файл зерна (RU/EN) целиком в контекст LLM.
 2) Дай доменный ввод (ТЗ/спецификацию/пример пользовательского пути).
 3) Получи от модели вопросы (Questions), затем план (Plan с Change Gate), затем материализацию (Answer/patch), затем отчёт проверок (Verify) и команды (Commands).
 4) Всегда соблюдай порядок: Surface → Tests (Proof) → Code → Verify → Обновить HOLO/Decisions.
 
-- Строгая структура вывода (формат-агностично; по умолчанию Markdown):
+### Строгая структура вывода:
 - Пять разделов: Questions, Plan, Answer, Verify, Commands.
 - Каждый Plan содержит Change Gate (Intent/Pressure/Surface impact/Proof). Для touches [FROZEN] обязателен Migration Block (Impact/Strategy/Window-Version/Data/Backfill/Rollback/Tests Keep&Add).
-
 - Маркеры в контрактных тестах (обязательно):
 - В каждом tests/contract/*.spec первые строки:
 Surface: <ExactSurfaceItemName>
 Stability: FROZEN
 Invariant: <INV-ID> (опционально)
 
-- Проверки (локально/CI):
+### Проверки (локально/CI):
 - ./tools/holo-verify.sh
 - ./tools/surface-lint.sh
 - ./tools/docs-link-check.sh
 - затем прогон тестов (contract/scenario/property)
 
-- Что даёт зерно:
+### Что даёт зерно:
 - Аксиомы (A1–A6), лёгкая алгебра, критерий голограммы, алгоритм Spec→Surface.
 - Guardrails против «широких патчей» и изменений Frozen без Pressure/Proof.
 - Шаблоны HOLO/SURFACE/tests и политика миграций.
