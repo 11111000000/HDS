@@ -5,9 +5,11 @@
 
 Базовые правила
 - Surface First: изменения внешнего смысла начинаются с правки SURFACE.md, затем — тесты, и только потом код.
-- Frozen Requires Proof: нельзя менять [FROZEN] без явного Pressure и тестов/миграции.
-- One Change — One Intent: один запрос — одна цель, никаких широких патчей.
-- Включайте HDS LLM Seed в контекст (RU: docs/hds-llm-seed-ru.md | EN: docs/hds-llm-seed-en.md) и отвечайте строго в виде Org typed blocks (question/plan/answer/commands/verify).
+- Frozen Requires Proof: нельзя менять [FROZEN] без явного Pressure и тестов; при touches [FROZEN] обязателен Migration Block (Impact/Strategy/Window-Version/Data/Backfill/Rollback/Tests).
+- One Change — One Intent: один запрос — одна цель; «широкие патчи» запрещены — дробите на шаги.
+- Ответ структурируйте в пяти разделах: Questions, Plan (с Change Gate), Answer (патч), Verify, Commands (Markdown по умолчанию).
+- Подключайте HDS LLM Seed (RU: docs/hds-llm-seed-ru.md | EN: docs/hds-llm-seed-en.md) на каждый диалог.
+- Маркеры в контрактных тестах обязательны: первые строки файла содержат Surface: <Name> и Stability: FROZEN (см. docs/proof-policy.md).
 
 Формат запроса к LLM (вставляйте в промпт)
 Intent: что одно изменение должно сделать и зачем (1 фраза)  

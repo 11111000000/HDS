@@ -10,7 +10,7 @@
   - Guardrails (запрет «широких патчей», изменения Frozen без Proof)
   - Мини-алгоритм «Spec→Surface»
   - Мини-шаблоны HOLO/SURFACE/tests
-  - Формат ответов LLM: Org typed blocks (question/plan/answer/verify/commands)
+  - Формат ответов LLM: пять разделов — Questions, Plan, Answer, Verify, Commands (Markdown по умолчанию)
 
 Когда применять
 - Новый проект — для генерации минимальной голограммы

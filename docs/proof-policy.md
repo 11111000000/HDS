@@ -19,7 +19,11 @@
 - Порог настраивается переменной окружения HDS_PROOF_REUSE_MAX (см. policies/compatibility.md).
 
 Практика маппинга
-- SURFACE.md → tests/contract/*: имя файла указывает на поверхность или содержит комментарий с ссылкой на SurfaceItem.
+- Контрактные тесты (tests/contract/*) содержат обязательные шапки (первые строки):
+  Surface: <ExactSurfaceItemName>
+  Stability: FROZEN
+  # Invariant: <INV-ID> (опционально)
+- SURFACE.md → tests/contract/*: Proof указывает на соответствующие файлы; имя и/или шапка теста однозначно ссылаются на SurfaceItem.
 - HOLO Decisions (Frozen) → Proof: у замороженных решений должно быть Exit и, при необходимости, ссылка на соответствующий тест/инструмент.
 
 CI и инструменты

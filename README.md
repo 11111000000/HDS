@@ -46,22 +46,37 @@
 
 ## Использование HDS LLM Seed
 
-- Файлы зерна:  
+- Где лежит:  
   - RU: docs/hds-llm-seed-ru.md  
   - EN: docs/hds-llm-seed-en.md  
-  - Инструкции: docs/llm-seed-guide.md
+  - Подробное руководство: docs/llm-seed-guide.md
 
-- Как применять:
-  1) Добавь соответствующий файл зерна (RU/EN) в контекст LLM-запроса.
-  2) Следуй схеме вывода в виде Org typed blocks: question/plan/answer/verify/commands.
-  3) Соблюдай порядок: Surface → Tests (Proof) → Code → Verify → Обновить HOLO/Decisions.
-  4) Для [FROZEN]: укажи Pressure и Migration Block; не удаляй существующие Proof.
-  5) Запускай проверки: holo-verify, surface-lint, docs-link-check, затем тесты.
+- Как запускать (коротко):
+  1) Добавь файл зерна (RU/EN) целиком в контекст LLM.
+  2) Дай доменный ввод (ТЗ/спецификацию/пример пользовательского пути).
+  3) Получи от модели вопросы (Questions), затем план (Plan с Change Gate), затем материализацию (Answer/patch), затем отчёт проверок (Verify) и команды (Commands).
+  4) Всегда соблюдай порядок: Surface → Tests (Proof) → Code → Verify → Обновить HOLO/Decisions.
 
-- Гарантии зерна:
-  - Законы (A1–A6), лёгкая алгебра, критерий голограммы, Change Gate.
-  - Guardrails против «широких патчей» и изменений Frozen без Proof.
-  - Мини-шаблоны файлов и маркеры привязки тестов к Surface.
+- Строгая схема вывода:
+  - Разрешены только Org typed blocks: question, plan, answer, verify, commands.
+  - Каждый plan содержит Change Gate (Intent/Pressure/Surface impact/Proof). Для touches [FROZEN] обязателен Migration Block (Impact/Strategy/Window-Version/Data/Backfill/Rollback/Tests Keep&Add).
+
+- Маркеры в контрактных тестах (обязательно):
+  - В каждом tests/contract/*.spec первые строки:
+    Surface: <ExactSurfaceItemName>
+    Stability: FROZEN
+    # Invariant: <INV-ID> (опционально)
+
+- Проверки (локально/CI):
+  - ./tools/holo-verify.sh
+  - ./tools/surface-lint.sh
+  - ./tools/docs-link-check.sh
+  - затем прогон тестов (contract/scenario/property)
+
+- Что даёт зерно:
+  - Аксиомы (A1–A6), лёгкая алгебра, критерий голограммы, алгоритм Spec→Surface.
+  - Guardrails против «широких патчей» и изменений Frozen без Pressure/Proof.
+  - Шаблоны HOLO/SURFACE/tests и политика миграций.
 
 Подробнее см. docs/llm-seed-guide.md.
 
