@@ -19,19 +19,19 @@
 
 ## 规范与文档
 
-- 规范：docs/hds-spec.md
-- 精要：docs/hdf-compact-spec.md
-- 要点：docs/hds-essentials.md
-- 代数（HGA）：docs/hga-algebra.md 与导出 docs/algebra/HDS-algebra.txt
-- 证明策略：docs/proof-policy.md
-- 阶段/关口：docs/stages-and-gates.md
-- 变更协议与 LLM：docs/change-gate.md, docs/llm-protocol.md
-- HDS LLM 种子（提示词）：docs/hds-llm-seed-ru.md, docs/hds-llm-seed-en.md
-- 种子使用指南：docs/llm-seed-guide.md
-- 模式/反模式：docs/patterns-anti-patterns.md
-- 术语/FAQ：docs/glossary.md, docs/faq.md
-- 总览/哲思：docs/overview.md, docs/narrative-philosophy.md
-- 路线图：docs/roadmap.md
+- 规范：[docs/hds-spec.cn.md](docs/hds-spec.cn.md)
+- 精要：[docs/hdf-compact-spec.md](docs/hdf-compact-spec.md)
+- 要点：[docs/hds-essentials.cn.md](docs/hds-essentials.cn.md)
+- 代数（HGA）：[docs/hga-algebra.md](docs/hga-algebra.md) 与导出 [docs/algebra/HDS-algebra.txt](docs/algebra/HDS-algebra.txt)
+- 证明策略：[docs/proof-policy.md](docs/proof-policy.md)
+- 阶段/关口：[docs/stages-and-gates.md](docs/stages-and-gates.md)
+- 变更协议与 LLM：[docs/change-gate.md](docs/change-gate.md), [docs/llm-protocol.md](docs/llm-protocol.md)
+- HDS LLM 种子（提示词）：[docs/hds-llm-seed-ru.md](docs/hds-llm-seed-ru.md), [docs/hds-llm-seed-en.md](docs/hds-llm-seed-en.md)
+- 种子使用指南：[docs/llm-seed-guide.md](docs/llm-seed-guide.md)
+- 模式/反模式：[docs/patterns-anti-patterns.md](docs/patterns-anti-patterns.md)
+- 术语/FAQ：[docs/glossary.md](docs/glossary.md), [docs/faq.md](docs/faq.md)
+- 总览/哲思：[docs/overview.cn.md](docs/overview.cn.md), [docs/narrative-philosophy.cn.md](docs/narrative-philosophy.cn.md)
+- 路线图：[docs/roadmap.md](docs/roadmap.md)
 
 ## 五步快速开始
 

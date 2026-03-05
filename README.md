@@ -23,19 +23,19 @@
 
 ## Спецификации и документы
 
-- Норматив: docs/hds-spec.md
-- Компактная выжимка: docs/hdf-compact-spec.md
-- Суть подхода (Essentials): docs/hds-essentials.md
-- Алгебра (HGA): docs/hga-algebra.md и экспорт docs/algebra/HDS-algebra.txt
-- Политика Proof: docs/proof-policy.md
-- Стадии и ворота: docs/stages-and-gates.md
-- Протокол изменений и LLM: docs/change-gate.md, docs/llm-protocol.md
-- Зерно для LLM (HDS LLM Seed): docs/hds-llm-seed-ru.md, docs/hds-llm-seed-en.md
-- Руководство по зерну: docs/llm-seed-guide.md
-- Паттерны/антипаттерны: docs/patterns-anti-patterns.md
-- Глоссарий/FAQ: docs/glossary.md, docs/faq.md
-- Нарратив/философия: docs/overview.md, docs/narrative-philosophy.md
-- Дорожная карта: docs/roadmap.md
+- Норматив: [docs/hds-spec.md](docs/hds-spec.md)
+- Компактная выжимка: [docs/hdf-compact-spec.md](docs/hdf-compact-spec.md)
+- Суть подхода (Essentials): [docs/hds-essentials.md](docs/hds-essentials.md)
+- Алгебра (HGA): [docs/hga-algebra.md](docs/hga-algebra.md) и экспорт [docs/algebra/HDS-algebra.txt](docs/algebra/HDS-algebra.txt)
+- Политика Proof: [docs/proof-policy.md](docs/proof-policy.md)
+- Стадии и ворота: [docs/stages-and-gates.md](docs/stages-and-gates.md)
+- Протокол изменений и LLM: [docs/change-gate.md](docs/change-gate.md), [docs/llm-protocol.md](docs/llm-protocol.md)
+- Зерно для LLM (HDS LLM Seed): [docs/hds-llm-seed-ru.md](docs/hds-llm-seed-ru.md), [docs/hds-llm-seed-en.md](docs/hds-llm-seed-en.md)
+- Руководство по зерну: [docs/llm-seed-guide.md](docs/llm-seed-guide.md)
+- Паттерны/антипаттерны: [docs/patterns-anti-patterns.md](docs/patterns-anti-patterns.md)
+- Глоссарий/FAQ: [docs/glossary.md](docs/glossary.md), [docs/faq.md](docs/faq.md)
+- Нарратив/философия: [docs/overview.md](docs/overview.md), [docs/narrative-philosophy.md](docs/narrative-philosophy.md)
+- Дорожная карта: [docs/roadmap.md](docs/roadmap.md)
 
 ## Быстрый старт (5 шагов)
 

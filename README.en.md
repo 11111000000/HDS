@@ -19,19 +19,19 @@ Holographic Development (HDS) keeps a minimal “slice of the whole” at all ti
 
 ## Specifications and documents
 
-- Normative spec: docs/hds-spec.md
-- Compact spec: docs/hdf-compact-spec.md
-- Essentials: docs/hds-essentials.md
-- Algebra (HGA): docs/hga-algebra.md and export docs/algebra/HDS-algebra.txt
-- Proof policy: docs/proof-policy.md
-- Stages & gates: docs/stages-and-gates.md
-- Change protocol & LLM: docs/change-gate.md, docs/llm-protocol.md
-- HDS LLM Seed (prompt): docs/hds-llm-seed-ru.md, docs/hds-llm-seed-en.md
-- Seed guide: docs/llm-seed-guide.md
-- Patterns/anti-patterns: docs/patterns-anti-patterns.md
-- Glossary/FAQ: docs/glossary.md, docs/faq.md
-- Overview/philosophy: docs/overview.md, docs/narrative-philosophy.md
-- Roadmap: docs/roadmap.md
+- Normative spec: [docs/hds-spec.en.md](docs/hds-spec.en.md)
+- Compact spec: [docs/hdf-compact-spec.md](docs/hdf-compact-spec.md)
+- Essentials: [docs/hds-essentials.en.md](docs/hds-essentials.en.md)
+- Algebra (HGA): [docs/hga-algebra.md](docs/hga-algebra.md) and export [docs/algebra/HDS-algebra.txt](docs/algebra/HDS-algebra.txt)
+- Proof policy: [docs/proof-policy.md](docs/proof-policy.md)
+- Stages & gates: [docs/stages-and-gates.md](docs/stages-and-gates.md)
+- Change protocol & LLM: [docs/change-gate.md](docs/change-gate.md), [docs/llm-protocol.md](docs/llm-protocol.md)
+- HDS LLM Seed (prompt): [docs/hds-llm-seed-ru.md](docs/hds-llm-seed-ru.md), [docs/hds-llm-seed-en.md](docs/hds-llm-seed-en.md)
+- Seed guide: [docs/llm-seed-guide.md](docs/llm-seed-guide.md)
+- Patterns/anti-patterns: [docs/patterns-anti-patterns.md](docs/patterns-anti-patterns.md)
+- Glossary/FAQ: [docs/glossary.md](docs/glossary.md), [docs/faq.md](docs/faq.md)
+- Overview/philosophy: [docs/overview.en.md](docs/overview.en.md), [docs/narrative-philosophy.en.md](docs/narrative-philosophy.en.md)
+- Roadmap: [docs/roadmap.md](docs/roadmap.md)
 
 ## Quickstart (5 steps)
 
