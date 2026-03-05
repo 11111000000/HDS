@@ -12,12 +12,44 @@ jobs:
 
       - name: Verify HDS holography
         run: |
+          set -euo pipefail
           bash tools/holo-verify.sh
           bash tools/surface-lint.sh
           bash tools/docs-link-check.sh
           bash tools/spec-version-check.sh
+
+          echo "== Algebra sync/check =="
+          src_md="docs/hga-algebra.md"
+          src_org="docs/hga-algebra.org"
+          dst="docs/algebra/HDS-algebra.txt"
+
+          echo "SRC candidates (prefer md):"
+          ls -l "$src_md" "$src_org" 2>/dev/null || true
+          echo "DST:"
+          ls -l "$dst" 2>/dev/null || true
+
+          if command -v sha256sum >/dev/null 2>&1; then
+            echo "Checksums BEFORE:"
+            [[ -f "$src_md" ]] && sha256sum "$src_md" || true
+            [[ -f "$src_org" ]] && sha256sum "$src_org" || true
+            [[ -f "$dst" ]] && sha256sum "$dst" || true
+          fi
+
+          echo "+ Running tools/algebra-sync.sh"
           bash tools/algebra-sync.sh
-          git diff --quiet -- docs/algebra/HDS-algebra.txt || { echo "Algebra export drift: run tools/algebra-sync.sh and commit" >&2; exit 1; }
+
+          echo "GIT STATUS (dst after sync):"
+          git status --porcelain -- "$dst" || true
+
+          echo "DIFF (dst, first 200 lines if any):"
+          git --no-pager diff -- "$dst" | sed -n '1,200p' || true
+
+          if git diff --quiet -- "$dst"; then
+            echo "Algebra export: in sync"
+          else
+            echo "Algebra export drift: run tools/algebra-sync.sh and commit updated ${dst}" >&2
+            exit 1
+          fi
 
       - name: HDS wrapper (idempotent)
         run: |

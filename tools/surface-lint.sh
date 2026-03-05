@@ -27,7 +27,7 @@ while IFS= read -r line; do
     echo "SURFACE LINT: suspicious line: $line" >&2
     bad=$((bad+1))
   fi
-done < <(grep -E '^\-\s*\[(FROZEN|FLUID)\]' "$surface" || true)
+done < <(grep -E '^-\s*\[(FROZEN|FLUID)\]' "$surface" || true)
 
 issues=$((bad+dups))
 if [[ "$issues" -gt 0 ]]; then

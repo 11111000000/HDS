@@ -12,5 +12,10 @@ else
 fi
 dst="$root/docs/algebra/HDS-algebra.txt"
 mkdir -p "$(dirname "$dst")"
-cp "$src" "$dst"
-echo "HGA SYNC: $src -> $dst"
+# Report chosen source and whether update is needed
+if cmp -s "$src" "$dst" 2>/dev/null; then
+  echo "HGA SYNC: $src -> $dst (no change)"
+else
+  cp "$src" "$dst"
+  echo "HGA SYNC: $src -> $dst (UPDATED)"
+fi
