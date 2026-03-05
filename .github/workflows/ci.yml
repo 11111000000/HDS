@@ -17,6 +17,8 @@ jobs:
         run: bash tools/surface-lint.sh
 
       - name: Docs link check
+        env:
+          HDS_DOCS_LINK_DEBUG: "1"
         run: bash tools/docs-link-check.sh
 
       - name: Spec version check

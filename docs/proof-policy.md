@@ -29,5 +29,5 @@
 ## CI и инструменты
 - tools/holo-verify.sh: проверяет существование Proof для [FROZEN], ограничения reuse, наличие Exit у Frozen-решений (в HOLO.md).
 - tools/surface-lint.sh: проверка синтаксиса SURFACE.
-- tools/docs-link-check.sh: проверка ссылок (Markdown и Org [[path][label]]).
+- tools/docs-link-check.sh: проверка ссылок.
 - tools/spec-version-check.sh: сверка версий полной и компактной спецификации.
