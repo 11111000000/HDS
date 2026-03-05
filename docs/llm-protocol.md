@@ -1,6 +1,6 @@
-LLM-протокол (норматив): как работать в рамках голограммы
+# LLM-протокол (норматив): как работать в рамках голограммы
 
-Назначение
+Назначение  
 Сделать взаимодействие с LLM предсказуемым и безопасным для публичного смысла: менять быстро там, где можно (Fluid), и строго там, где нужно (Frozen/Core).
 
 Базовые правила
@@ -10,18 +10,18 @@ LLM-протокол (норматив): как работать в рамках
 - Включайте HDS LLM Seed в контекст (RU: docs/hds-llm-seed-ru.md | EN: docs/hds-llm-seed-en.md) и отвечайте строго в виде Org typed blocks (question/plan/answer/commands/verify).
 
 Формат запроса к LLM (вставляйте в промпт)
-Intent: что одно изменение должно сделать и зачем (1 фраза)
-Pressure: Bug | Feature | Debt | Ops
-Surface impact: (none) | touches SURFACE item(s): <name(s)> [FROZEN/FLUID]
-Proof: tests: <какие контрактные/сценарные тесты подтвердят результат>
+Intent: что одно изменение должно сделать и зачем (1 фраза)  
+Pressure: Bug | Feature | Debt | Ops  
+Surface impact: (none) | touches SURFACE item(s): <name(s)> [FROZEN/FLUID]  
+Proof: tests: <какие контрактные/сценарные тесты подтвердят результат>  
 
 Если touches [FROZEN], добавьте:
 Migration/Compatibility: Old→New семантика, стратегия совместимости, окно депрекации или версионирование.
 
 Пример (безопасное расширение Frozen через v2)
-Intent: Add display_name to public user payload without breaking v1 clients
-Pressure: Feature
-Surface impact: touches UserPublic (FROZEN): introduce UserPublic.v2 and GET /v2/users/{id}
+Intent: Add display_name to public user payload without breaking v1 clients  
+Pressure: Feature  
+Surface impact: touches UserPublic (FROZEN): introduce UserPublic.v2 and GET /v2/users/{id}  
 Proof: tests/contract/test_userpublic_v2_roundtrip.spec, tests/contract/test_api_users_v2_contract.spec
 
 Follow-up steps for you:
@@ -41,3 +41,4 @@ Guardrails для модели
 - HDS LLM Seed: [ru](hds-llm-seed-ru.md), [en](hds-llm-seed-en.md)
 - Нормативная спецификация: [[hds-spec.md]]
 - Быстрый маршрут: [[quickstart-5min.md]]
+

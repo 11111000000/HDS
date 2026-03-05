@@ -1,4 +1,4 @@
-HGA — Holographic Development Algebra (v1.2, компактно)
+# HGA — Holographic Development Algebra (v1.2, компактно)
 
 Цель: задать минимальную формальную модель, которая “компилируется” в практику HDS без бюрократии.
 
@@ -38,3 +38,4 @@ HGA — Holographic Development Algebra (v1.2, компактно)
 
 5) Семантика
 - ApplyChange модифицирует State (Surface/Decisions/Tests/Artifacts), не нарушая аксиом. Любое нарушение — отклонение на уровне CI/verify.
+
