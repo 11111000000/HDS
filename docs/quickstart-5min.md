@@ -33,6 +33,8 @@
 - Компактная выжимка: docs/hdf-compact-spec.md
 - Манифест и поверхность: HOLO.md, SURFACE.md
 - Инструменты: tools/holo-verify.sh
+- HDS LLM Seed: docs/hds-llm-seed-ru.md, docs/hds-llm-seed-en.md
+- Руководство по зерну: docs/llm-seed-guide.md
 #+begin_note
 Совет: придерживайтесь правила Surface First — если меняется внешний смысл, сперва правьте SURFACE.md и тесты, затем код. Это экономит время и снижает переписывания.
 #+end_note

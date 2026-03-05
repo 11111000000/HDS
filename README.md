@@ -22,6 +22,7 @@ HDS — Holographic Development Specification (recursive)
 - Политика Proof: docs/proof-policy.md
 - Стадии и ворота: docs/stages-and-gates.md
 - Протокол изменений и LLM: docs/change-gate.md, docs/llm-protocol.md
+- Зерно для LLM (HDS LLM Seed): docs/hds-llm-seed-ru.md, docs/hds-llm-seed-en.md; руководство: docs/llm-seed-guide.md
 - Паттерны/антипаттерны: docs/patterns-anti-patterns.md
 - Глоссарий/FAQ: docs/glossary.md, docs/faq.md
 - Нарратив/философия: docs/overview.md, docs/narrative-philosophy.md

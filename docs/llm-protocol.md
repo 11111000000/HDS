@@ -7,6 +7,7 @@ LLM-протокол (норматив): как работать в рамках
 - Surface First: изменения внешнего смысла начинаются с правки SURFACE.md, затем — тесты, и только потом код.
 - Frozen Requires Proof: нельзя менять [FROZEN] без явного Pressure и тестов/миграции.
 - One Change — One Intent: один запрос — одна цель, никаких широких патчей.
+- Включайте HDS LLM Seed в контекст (RU: docs/hds-llm-seed-ru.md | EN: docs/hds-llm-seed-en.md) и отвечайте строго в виде Org typed blocks (question/plan/answer/commands/verify).
 
 Формат запроса к LLM (вставляйте в промпт)
 Intent: что одно изменение должно сделать и зачем (1 фраза)
@@ -37,5 +38,6 @@ Guardrails для модели
 Ссылки
 - SURFACE.md
 - HOLO.md
+- HDS LLM Seed: [ru](hds-llm-seed-ru.md), [en](hds-llm-seed-en.md)
 - Нормативная спецификация: [[hds-spec.md]]
 - Быстрый маршрут: [[quickstart-5min.md]]
