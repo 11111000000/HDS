@@ -1,4 +1,4 @@
-# HDS — Holographic Development Specification (recursive)
+# HDS — Спецификация Голографической Разработки (Рекурсивная)
 
 ## Что это
 
@@ -6,8 +6,8 @@
 
 ## Зачем
 
-- Удерживать публичный смысл стабильным без бюрократии.
-- Делать изменения воспроизводимыми фактами (тесты/миграции), а не рассказами.
+- Удерживать смысл стабильным.
+- Делать изменения воспроизводимыми фактами.
 - Сохранить скорость за счёт двухскоростного контура: быстрый Fluid и медленный Frozen/Core.
 
 ## Ключевые артефакты (ядро голограммы)
@@ -35,48 +35,48 @@
 
 ## Быстрый старт (5 шагов)
 
-1) Обнови HOLO.md: Stage, Purpose, 5–15 инвариантов, ключевые решения (с Exit).  
-2) Опиши SURFACE.md: элементы контракта с [FROZEN]/[FLUID] и Proof-ссылками.  
-3) Добавь доказательства: контрактные тесты для Frozen и один вертикальный сценарий.  
-4) Запусти проверки: ./tools/hds.sh all  
-   (или по отдельности: ./tools/holo-verify.sh && ./tools/surface-lint.sh && ./tools/docs-link-check.sh)  
+1) Обнови HOLO.md: Stage, Purpose, 5–15 инвариантов, ключевые решения (с Exit).
+2) Опиши SURFACE.md: элементы контракта с [FROZEN]/[FLUID] и Proof-ссылками.
+3) Добавь доказательства: контрактные тесты для Frozen и один вертикальный сценарий.
+4) Запусти проверки: ./tools/hds.sh all
+ (или по отдельности: ./tools/holo-verify.sh && ./tools/surface-lint.sh && ./tools/docs-link-check.sh)
 5) Делай PR по 4 строкам: Intent, Pressure (Bug/Feature/Debt/Ops), Surface impact, Proof.
 
 Если трогаешь [FROZEN], добавь Migration/Compatibility note (Old→New, стратегия, окно депрекации/версионирование).
 
 ## Использование HDS LLM Seed
 
-- Где лежит:  
-  - RU: docs/hds-llm-seed-ru.md  
-  - EN: docs/hds-llm-seed-en.md  
-  - Подробное руководство: docs/llm-seed-guide.md
+- Где лежит:
+- RU: docs/hds-llm-seed-ru.md
+- EN: docs/hds-llm-seed-en.md
+- Подробное руководство: docs/llm-seed-guide.md
 
 - Как запускать (коротко):
-  1) Добавь файл зерна (RU/EN) целиком в контекст LLM.
-  2) Дай доменный ввод (ТЗ/спецификацию/пример пользовательского пути).
-  3) Получи от модели вопросы (Questions), затем план (Plan с Change Gate), затем материализацию (Answer/patch), затем отчёт проверок (Verify) и команды (Commands).
-  4) Всегда соблюдай порядок: Surface → Tests (Proof) → Code → Verify → Обновить HOLO/Decisions.
+1) Добавь файл зерна (RU/EN) целиком в контекст LLM.
+2) Дай доменный ввод (ТЗ/спецификацию/пример пользовательского пути).
+3) Получи от модели вопросы (Questions), затем план (Plan с Change Gate), затем материализацию (Answer/patch), затем отчёт проверок (Verify) и команды (Commands).
+4) Всегда соблюдай порядок: Surface → Tests (Proof) → Code → Verify → Обновить HOLO/Decisions.
 
-- Строгая схема вывода:
-  - Разрешены только Org typed blocks: question, plan, answer, verify, commands.
-  - Каждый plan содержит Change Gate (Intent/Pressure/Surface impact/Proof). Для touches [FROZEN] обязателен Migration Block (Impact/Strategy/Window-Version/Data/Backfill/Rollback/Tests Keep&Add).
+- Строгая структура вывода (формат-агностично; по умолчанию Markdown):
+- Пять разделов: Questions, Plan, Answer, Verify, Commands.
+- Каждый Plan содержит Change Gate (Intent/Pressure/Surface impact/Proof). Для touches [FROZEN] обязателен Migration Block (Impact/Strategy/Window-Version/Data/Backfill/Rollback/Tests Keep&Add).
 
 - Маркеры в контрактных тестах (обязательно):
-  - В каждом tests/contract/*.spec первые строки:
-    Surface: <ExactSurfaceItemName>
-    Stability: FROZEN
-    # Invariant: <INV-ID> (опционально)
+- В каждом tests/contract/*.spec первые строки:
+Surface: <ExactSurfaceItemName>
+Stability: FROZEN
+# Invariant: <INV-ID> (опционально)
 
 - Проверки (локально/CI):
-  - ./tools/holo-verify.sh
-  - ./tools/surface-lint.sh
-  - ./tools/docs-link-check.sh
-  - затем прогон тестов (contract/scenario/property)
+- ./tools/holo-verify.sh
+- ./tools/surface-lint.sh
+- ./tools/docs-link-check.sh
+- затем прогон тестов (contract/scenario/property)
 
 - Что даёт зерно:
-  - Аксиомы (A1–A6), лёгкая алгебра, критерий голограммы, алгоритм Spec→Surface.
-  - Guardrails против «широких патчей» и изменений Frozen без Pressure/Proof.
-  - Шаблоны HOLO/SURFACE/tests и политика миграций.
+- Аксиомы (A1–A6), лёгкая алгебра, критерий голограммы, алгоритм Spec→Surface.
+- Guardrails против «широких патчей» и изменений Frozen без Pressure/Proof.
+- Шаблоны HOLO/SURFACE/tests и политика миграций.
 
 Подробнее см. docs/llm-seed-guide.md.
 
@@ -94,9 +94,9 @@
 
 ## Как формулировать PR (Lite-протокол)
 
-- Intent: одна фраза (одна цель)  
-- Pressure: Bug | Feature | Debt | Ops  
-- Surface impact: touches SURFACE item(s) или none  
+- Intent: одна фраза (одна цель)
+- Pressure: Bug | Feature | Debt | Ops
+- Surface impact: touches SURFACE item(s) или none
 - Proof: какие тесты докажут
 
 Если трогаешь [FROZEN], добавь Migration/Compatibility note (Old→New, стратегия, окно депрекации/версионирование).

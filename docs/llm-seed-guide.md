@@ -22,12 +22,9 @@
 3) При необходимости приложите доменную спецификацию/ТЗ/архив артефактов.
 
 Режим ответа модели (строго)
-- Только Org typed blocks:
-  - #+begin_question … #+end_question
-  - #+begin_plan … #+end_plan
-  - #+begin_answer … #+end_answer
-  - #+begin_verify … #+end_verify
-  - #+begin_commands … #+end_commands
+- Формат-агностично; по умолчанию — Markdown.
+- Структура ответа — пять разделов с заголовками: Questions, Plan, Answer, Verify, Commands.
+- Допустимы списки, кодовые блоки и простые таблицы; спец-форматы необязательны.
 
 Старт нового репозитория (15–30 мин)
 1) Discovery
