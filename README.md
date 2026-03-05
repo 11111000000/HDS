@@ -65,7 +65,7 @@
 - В каждом tests/contract/*.spec первые строки:
 Surface: <ExactSurfaceItemName>
 Stability: FROZEN
-# Invariant: <INV-ID> (опционально)
+Invariant: <INV-ID> (опционально)
 
 - Проверки (локально/CI):
 - ./tools/holo-verify.sh
