@@ -10,14 +10,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Verify HDS holography
+      - name: Holo verify
+        run: bash tools/holo-verify.sh
+
+      - name: Surface lint
+        run: bash tools/surface-lint.sh
+
+      - name: Docs link check
+        run: bash tools/docs-link-check.sh
+
+      - name: Spec version check
+        run: bash tools/spec-version-check.sh
+
+      - name: Algebra sync/check
         run: |
           set -euo pipefail
-          bash tools/holo-verify.sh
-          bash tools/surface-lint.sh
-          bash tools/docs-link-check.sh
-          bash tools/spec-version-check.sh
-
           echo "== Algebra sync/check =="
           src_md="docs/hga-algebra.md"
           src_org="docs/hga-algebra.org"
@@ -37,6 +44,13 @@ jobs:
 
           echo "+ Running tools/algebra-sync.sh"
           bash tools/algebra-sync.sh
+
+          if command -v sha256sum >/dev/null 2>&1; then
+            echo "Checksums AFTER:"
+            [[ -f "$src_md" ]] && sha256sum "$src_md" || true
+            [[ -f "$src_org" ]] && sha256sum "$src_org" || true
+            [[ -f "$dst" ]] && sha256sum "$dst" || true
+          fi
 
           echo "GIT STATUS (dst after sync):"
           git status --porcelain -- "$dst" || true
