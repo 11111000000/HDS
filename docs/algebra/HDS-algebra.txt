@@ -38,3 +38,4 @@
 
 5) Семантика
 - ApplyChange модифицирует State (Surface/Decisions/Tests/Artifacts), не нарушая аксиом. Любое нарушение — отклонение на уровне CI/verify.
+
