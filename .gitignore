@@ -36,3 +36,5 @@ logs/
 .env.*
 
 # Generated docs (exported artifacts)
+.agent-shell
+.opencode
