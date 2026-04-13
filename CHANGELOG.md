@@ -1,5 +1,9 @@
 # Changelog
 
+- v1.5.0: HDS OpenCode integration - complete agent configuration for OpenCode/Claude Code. Added AGENTS.md with Change Gate and HDS workflow; opencode.json with seed instructions; .opencode/agents/hds.md for @hds agent invocation; docs/opencode/ with agent, skills, rules, and integration documentation. Updated generate-scaffold.sh to copy verification scripts (holo-verify.sh, surface-lint.sh, docs-link-check.sh) into new projects. Added install-opencode-configs.sh for local and global installation. Removed Skills from canonical HDS path (now reference-only).
+
+- v1.4.0: HDS LLM Seed v1.4 - enhanced kernel and governance with stronger invariants, bootstrap workflow, and detailed change gate requirements.
+
 - v1.3.3: Add English and Chinese translations for key docs: hds-spec, narrative-philosophy, overview, and hds-essentials (docs/*.en.md, docs/*.cn.md). Minor proofreading and link alignment across these files.
 
 - v1.3.2: Align docs with format-agnostic policy; remove leftover “Org typed blocks only” mentions (README, llm-seed-guide). Add README.en.md and README.cn.md; polish headings and minor typos; clarify how to use the five-section response structure (Markdown by default) without format lock-in.
