@@ -9,7 +9,7 @@ init_scaffold() {
     local dir
     dir="$(cd "$target" && pwd)"
     echo "Initializing HDS scaffold in $dir..."
-    mkdir -p "$dir"/.github "$dir"/templates "$dir"/tests/contract "$dir"/tests/scenario "$dir"/tools "$dir"/.opencode/agents "$dir"/docs
+    mkdir -p "$dir"/.github "$dir"/templates "$dir"/tests/contract "$dir"/tests/scenario "$dir"/tools "$dir"/.opencode/agents "$dir"/.hds "$dir"/.cursor/rules "$dir"/docs
 
     cp -n "$SCRIPT_DIR"/../templates/HOLO.md "$dir"/HOLO.md 2>/dev/null || true
     cp -n "$SCRIPT_DIR"/../templates/SURFACE.md "$dir"/SURFACE.md 2>/dev/null || true
@@ -27,6 +27,13 @@ init_scaffold() {
 EOF
         fi
     fi
+
+    cp -n "$SCRIPT_DIR"/../CLAUDE.md "$dir"/CLAUDE.md 2>/dev/null || true
+    cp -n "$SCRIPT_DIR"/../CODEX.md "$dir"/CODEX.md 2>/dev/null || true
+    cp -n "$SCRIPT_DIR"/../.cursor/rules/hds.md "$dir"/.cursor/rules/hds.md 2>/dev/null || true
+    cp -n "$SCRIPT_DIR"/../.hds/agent-plugin.json "$dir"/.hds/agent-plugin.json 2>/dev/null || true
+    cp -n "$SCRIPT_DIR"/../docs/hds-agent-loader.md "$dir"/docs/hds-agent-loader.md 2>/dev/null || true
+    cp -n "$SCRIPT_DIR"/../docs/hds-agent-plugin.md "$dir"/docs/hds-agent-plugin.md 2>/dev/null || true
 
     if [ ! -f "$dir"/.opencode/agents/hds.md ]; then
         if [ -f "$SCRIPT_DIR"/../.opencode/agents/hds.md ]; then
@@ -63,7 +70,7 @@ EOF
     fi
 
     # Copy verification scripts
-    for script in holo-verify.sh surface-lint.sh docs-link-check.sh; do
+    for script in holo-verify.sh surface-lint.sh docs-link-check.sh agent-plugin-lint.sh hds.sh install-agent-plugin.sh; do
         if [ -f "$SCRIPT_DIR"/../tools/"$script" ]; then
             cp -n "$SCRIPT_DIR"/../tools/"$script" "$dir/tools/" 2>/dev/null || true
             chmod +x "$dir/tools/$script" 2>/dev/null || true

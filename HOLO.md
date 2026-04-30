@@ -27,6 +27,30 @@ Decisions (key choices):
   Exit: Evidence may be extended when reproducible metrics appear.
   Proof: tests/scenario/test_vertical_minimum.spec
 
+- D-003 Agent Adapter Layer
+  Status: Draft
+  Choice: one canonical HDS core file plus thin adapters for OpenCode, Claude Code, Cursor, and Codex.
+  Exit: each adapter loads the same two-cycle protocol without duplicating normative rules, and the matrix scenario passes.
+  Proof: tests/contract/test_agent_two_cycle.spec
+
+- D-004 Agent Plugin v2 Loader/Manifest
+  Status: Draft
+  Choice: introduce a v2 loader plus a machine-readable manifest so all agent adapters share one core and one loader contract.
+  Exit: the manifest/loader lint passes, scaffold/install copy the v2 files, and adapters point to the loader instead of directly duplicating core references.
+  Proof: tests/contract/test_agent_plugin_manifest_v2.spec
+
+- D-005 Unified Agent Installer
+  Status: Draft
+  Choice: one installer script provisions the full matrix for OpenCode, Claude Code, Cursor, and Codex.
+  Exit: the installer populates a fresh repo with all adapter/loader/core files and passes the installer smoke tests.
+  Proof: tests/contract/test_agent_plugin_installer_cli.spec
+
+- D-006 Runtime Analysis Docs
+  Status: Draft
+  Choice: keep runtime-specific analysis under `docs/agents/` as a single collection for agent/plugin/AGENTS surfaces.
+  Exit: the analysis docs cover OpenCode, Claude Code, Cursor, Codex, and the shared `AGENTS.md` contract without duplicating the loader core.
+  Proof: docs/agents/README.md
+
 Reality Check (vertical scenario):
 tests/scenario/test_vertical_minimum.spec — verifies: (a) a [FROZEN] SurfaceItem exists, (b) a corresponding contract test exists, (c) holo-verify passes.
 

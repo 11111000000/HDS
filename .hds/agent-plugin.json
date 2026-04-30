@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "core": "docs/hds-agent-plugin.md",
+  "loader": "docs/hds-agent-loader.md",
+  "cycles": [
+    "Surface + Proof",
+    "Code + Verify + Update"
+  ],
+  "adapters": {
+    "opencode": ".opencode/agents/hds.md",
+    "claude": "CLAUDE.md",
+    "cursor": ".cursor/rules/hds.md",
+    "codex": "CODEX.md"
+  }
+}

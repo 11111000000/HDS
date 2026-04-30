@@ -1,6 +1,8 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "instructions": [
-    "docs/hds-llm-seed-en.md"
+    "docs/hds-llm-seed-en.md",
+    "docs/hds-agent-loader.md",
+    "docs/hds-agent-plugin.md"
   ]
 }

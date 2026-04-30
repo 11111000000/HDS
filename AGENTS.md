@@ -6,6 +6,9 @@ This file configures how AI agents (OpenCode, Claude Code, etc.) work with this 
 
 **For new projects**: Copy `docs/hds-llm-seed-ru.md` or `docs/hds-llm-seed-en.md` into your LLM context.
 
+For agent plugins, load `docs/hds-agent-loader.md` first.
+For runtime analysis, see `docs/agents/README.md`.
+
 **For changes in this repo**: Follow the HDS workflow below.
 
 ---
@@ -27,6 +30,14 @@ Every change MUST include:
 - **Proof**: tests that validate the intent
 
 If touching [FROZEN] items → add Migration Block.
+
+### Two-cycle agent protocol
+
+Use the same two cycles in every supported agent format:
+1. Surface + Proof
+2. Code + Verify + Update
+
+Do not repeat the full protocol unless the surface changed.
 
 ### Rules (non-negotiable)
 
